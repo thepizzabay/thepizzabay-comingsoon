@@ -1,0 +1,194 @@
+<title>Pizza Bay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #ede0c4;
+    --bg-alt: #e3d1a9;
+    --ink: #2a1e14;
+    --ink-soft: #6b5842;
+    --bay: #1e5b63;
+    --tomato: #b8402a;
+    --olive: #6e7a3e;
+    --crust-line: rgba(42, 30, 20, 0.14);
+    --grain-dot: rgba(42, 30, 20, 0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1e1610;
+      --bg-alt: #291d15;
+      --ink: #f3e7d2;
+      --ink-soft: #c9b79c;
+      --bay: #5cb4bc;
+      --tomato: #e2694c;
+      --olive: #a3b569;
+      --crust-line: rgba(243, 231, 210, 0.16);
+      --grain-dot: rgba(243, 231, 210, 0.05);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #1e1610;
+    --bg-alt: #291d15;
+    --ink: #f3e7d2;
+    --ink-soft: #c9b79c;
+    --bay: #5cb4bc;
+    --tomato: #e2694c;
+    --olive: #a3b569;
+    --crust-line: rgba(243, 231, 210, 0.16);
+    --grain-dot: rgba(243, 231, 210, 0.05);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 1px 1px, var(--grain-dot) 1.4px, transparent 1.4px) 0 0 / 22px 22px,
+      var(--bg);
+    color: var(--ink);
+    font-family: "Work Sans", "Segoe UI", system-ui, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 6vh 1.5rem;
+    text-align: center;
+    overflow-x: hidden;
+  }
+
+  .stage {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 34rem;
+  }
+
+  .mark {
+    position: relative;
+    width: clamp(84px, 14vw, 128px);
+    height: clamp(84px, 14vw, 128px);
+    margin-bottom: 1.6rem;
+    transform: rotate(-8deg) translateX(1.4rem);
+  }
+
+  .mark svg { width: 100%; height: 100%; overflow: visible; }
+
+  .steam {
+    stroke: var(--ink-soft);
+    stroke-width: 2.5;
+    fill: none;
+    stroke-linecap: round;
+    opacity: 0.45;
+    transform-origin: center bottom;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .steam-1 { animation: drift 5.5s ease-in-out infinite; }
+    .steam-2 { animation: drift 5.5s ease-in-out infinite 0.9s; }
+    .steam-3 { animation: drift 5.5s ease-in-out infinite 1.8s; }
+  }
+
+  @keyframes drift {
+    0%   { transform: translateY(0) scaleY(1); opacity: 0; }
+    15%  { opacity: 0.5; }
+    70%  { opacity: 0.28; }
+    100% { transform: translateY(-14px) scaleY(1.08); opacity: 0; }
+  }
+
+  .eyebrow {
+    font-family: "Work Sans", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--bay);
+    margin: 0 0 0.9rem;
+  }
+
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(2.8rem, 9vw, 4.6rem);
+    line-height: 0.96;
+    letter-spacing: -0.01em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  h1 .bay { color: var(--tomato); }
+
+  .rule {
+    width: 3.25rem;
+    height: 1px;
+    background: var(--crust-line);
+    margin: 1.5rem 0 1.35rem;
+  }
+
+  .tagline {
+    font-family: "Fraunces", Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+    color: var(--ink-soft);
+    margin: 1.4rem 0 0;
+    letter-spacing: 0.01em;
+  }
+
+  .locale {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: "Work Sans", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bay);
+    margin: 0;
+  }
+
+  .locale svg { width: 11px; height: 11px; flex: none; }
+</style>
+
+<div class="stage">
+  <div class="mark" aria-hidden="true">
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <path class="steam steam-1" d="M46 30 Q40 22 46 15 Q52 8 46 0" />
+      <path class="steam steam-2" d="M60 30 Q54 21 60 13 Q66 6 59 -3" />
+      <path class="steam steam-3" d="M74 30 Q68 22 74 15 Q80 8 73 0" />
+
+      <path d="M60 34 L107 100 A 62 62 0 0 1 13 100 Z"
+            fill="var(--bg-alt)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round" />
+      <path d="M13 100 A 62 62 0 0 0 107 100"
+            fill="none" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round" />
+      <path d="M22 86 Q60 104 98 86" fill="none" stroke="var(--crust-line)" stroke-width="3" stroke-linecap="round" />
+
+      <circle cx="55" cy="55" r="7" fill="var(--tomato)" />
+      <circle cx="78" cy="70" r="7" fill="var(--tomato)" />
+      <circle cx="60" cy="88" r="7" fill="var(--tomato)" />
+      <circle cx="40" cy="75" r="4.5" fill="var(--olive)" />
+      <circle cx="82" cy="50" r="4.5" fill="var(--olive)" />
+    </svg>
+  </div>
+
+  <p class="eyebrow">Coming soon</p>
+  <h1>Pizza <span class="bay">Bay</span></h1>
+  <p class="tagline">In Crust We Trust</p>
+  <div class="rule"></div>
+  <p class="locale">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M12 22s7-7.58 7-13a7 7 0 1 0-14 0c0 5.42 7 13 7 13z" />
+      <circle cx="12" cy="9" r="2.4" />
+    </svg>
+    Paterson, NJ
+  </p>
+</div>
